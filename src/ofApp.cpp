@@ -6,10 +6,10 @@ void ofApp::setup(){
     ofBackground(0, 0, 0);
     
     for (int i = 0; i < 6; i ++) {
-        startX[i] = -75 + (i*3);
-        startY[i] = -75 + (i*3);
-        endX[i] = 150 - (i*6);
-        endY[i] = 150 - (i*6);
+        startX[i] = 0 + (i*3);
+        startY[i] = 0 + (i*3);
+        endX[i] = 0 - (i*6);
+        endY[i] = 0 - (i*6);
     }
     
     speed = 1.5;
@@ -66,7 +66,7 @@ void ofApp::update(){
                 speed_size = 0;
             }
      
-            if (ofGetElapsedTimef() > 4) {
+            if (ofGetElapsedTimef() > 6.5) {
                 line02X = line02X - speed_lineX;
                 if (line02X < -298) {
                     speed_lineX = 0;
@@ -79,7 +79,7 @@ void ofApp::update(){
             
             }
         
-            if (ofGetElapsedTimef() > 6) {
+            if (ofGetElapsedTimef() > 9) {
                 line01Y = line01Y + line_moveY;
                 line02Y = line02Y - line_moveY;
                 tri01PY = tri01PY + tri_speed01PY;
@@ -114,13 +114,13 @@ void ofApp::draw(){
     ofSetColor(0, 0, 0);
     ofDrawRectangle(startX[1], startY[1], endX[1], endY[1]);
     
-    if (ofGetElapsedTimef() > 4) {
+    if (ofGetElapsedTimef() > 6.5) {
         ofSetColor(255, 255, 255);
         ofSetLineWidth(5);
         ofDrawLine(line01X, line01Y, line02X, line02Y);
     }
     
-    if (ofGetElapsedTimef() > 6) {
+    if (ofGetElapsedTimef() > 9) {
         ofSetColor(255, 255, 255);
         ofSetLineWidth(5);
         ofDrawLine(line01X, line01Y, line02X, line02Y);
